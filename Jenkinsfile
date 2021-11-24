@@ -56,7 +56,7 @@ booleanParam(name: "RUN_FRONTEND_TESTS", defaultValue: true)
 
             steps {
 
-                echo 'Deploying...'
+                echo 'Step not executed...'
 
             }
 
