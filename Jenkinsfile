@@ -46,6 +46,21 @@ booleanParam(name: "RUN_FRONTEND_TESTS", defaultValue: true)
             }
 
         }
+        stage('Deploy') {
+
+            when {
+
+                expression { env.GIT_BRANCH == 'origin/main' }
+
+                }
+
+            steps {
+
+                echo 'Deploying...'
+
+            }
+
+        }
 
     }   
 
