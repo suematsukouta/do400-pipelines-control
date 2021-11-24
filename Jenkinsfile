@@ -1,22 +1,37 @@
-node('nodejs') {
+pipeline {
 
-stage('Checkout') {
+    agent {
 
-git branch: 'main',
+        node {
 
-url: 'https://github.com/suematsukouta/do400-pipelines-control'
-}
+            label 'nodejs'
 
-stage('Backend Tests') {
+        }
 
-sh 'node ./backend/test.js'
+    }
 
-}
+    stages {
 
-stage('Frontend Tests') {
+        stage('Backend Tests') {
 
-sh 'node ./frontend/test.js'
+            steps {
 
-}
+                sh 'node ./backend/test.js'
+
+            }
+
+        }
+
+        stage('Frontend Tests') {
+
+            steps {
+
+                sh 'node ./frontend/test.js'
+
+            }
+
+        }
+
+    }   
 
 }
