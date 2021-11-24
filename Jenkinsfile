@@ -51,8 +51,14 @@ booleanParam(name: "RUN_FRONTEND_TESTS", defaultValue: true)
             when {
 
                 expression { env.GIT_BRANCH == 'origin/main' }
+                beforeInput true
 
                 }
+            input {
+
+                message 'Deploy the application?'
+
+            }
 
             steps {
 
